@@ -1,0 +1,2 @@
+mcp>=1.23
+boto3>=1.35   # optional: only for HEARTH_USE_BEDROCK=1
