@@ -1,12 +1,13 @@
-# Friction log 
+# Friction Log
 
 | # | Tool / SDK | Task attempted | Steps | Expected | Actual | Severity | Workaround | Suggestion |
-|---|------------|----------------|-------|----------|--------|----------|------------|------------|
-| 1 |     2       |          3      |   4    |     2     |     2   |      1    |      3      |     4       |
+|---|---|---|---|---|---|---|---|---|
+| 1 | MCP SDK / Streamable HTTP | Connect the Hearth MCP server to an MCP client | Configure the server, start the HTTP endpoint, and run the end-to-end smoke client | The client should connect successfully and discover the registered household-memory tools | The integration required careful coordination between server configuration, transport setup, and client connectivity. Clearer end-to-end troubleshooting guidance would make diagnosing connection issues easier. | Medium | Use the provided HTTP smoke client to test the server independently and isolate connectivity issues | Provide a complete reference implementation with endpoint configuration, connection diagnostics, and common error explanations |
+| 2 | MCP Apps | Render the household brief card | Implement the HTML interface, connect it to structured tool output, and test the card in a compatible client | The household brief should render consistently using structured information returned by Hearth | Validating the relationship between the tool response, app resource, and client rendering requires attention to implementation details. More explicit examples would make the integration easier to verify. | Medium | Test the structured response separately and use a minimal interface to isolate rendering problems | Provide a complete MCP App example covering resource registration, `resourceUri`, structured data, and client-side rendering |
+| 3 | MCP SDK / Tool response design | Return concise spoken answers and structured household data | Design tool responses for item lookup, ambiguity resolution, and deadline tracking | Each tool should provide a concise answer for voice interactions and structured information for visual presentation | Supporting both voice-friendly output and structured data requires deliberate response design to keep the two representations consistent | Low | Keep response generation centralized and test representative outputs for each tool | Provide recommended response schemas and examples for assistants that support both voice and visual interfaces |
+| 4 | Python / SQLite | Handle recurring bills and month-end date calculations | Implement recurring due dates, month-end handling, urgency classification, and unit tests | Recurring deadlines should advance correctly, including dates near the end of a month | Calendar edge cases require explicit handling because adding a month does not always preserve the original day of the month | Medium | Implement deterministic date-handling logic and add tests for month-end cases | Provide reference examples and testing guidance for recurring schedules, leap years, and month-end date calculations |
+| 5 | Amazon Bedrock | Integrate optional AI-powered receipt extraction | Configure the extraction integration, process receipt text, and connect extracted information to the memory engine | Relevant receipt details should be extracted reliably, with missing dates handled without guessing | AI extraction introduces additional configuration and failure-handling considerations compared with a deterministic offline parser | Medium | Retain the offline receipt parser as a fallback and ask for clarification when required information is missing | Provide end-to-end examples covering service configuration, permissions, extraction errors, validation, and fallback behavior |
 
-## Prompts to jog your memory while building
-- `alexa-ai configure` / `new mcp` / `deploy`: any unclear errors or missing flags?
-- Was the valid list of `--category` values easy to find?
-- Did elicitation behave as documented on the simulator vs a device?
-- MCP Apps: did the `resourceUri` card render? What did you have to guess?
-- Account linking: how long from zero to a working OAuth flow?
+**Overall observation:**
+
+Building Hearth highlighted the importance of reliable tool integration, predictable structured responses, and clear separation between AI-powered extraction and deterministic application logic. Better end-to-end examples, clearer integration diagnostics, and more comprehensive guidance for edge cases would help developers build and validate MCP-based applications more efficiently.
