@@ -1,12 +1,8 @@
 # Friction log 
 
-Fill this in as you hit real problems. Judges want, per entry: the task you attempted, steps taken,
-expected vs actual, a severity (blocker / major / minor), the workaround, and an actionable suggestion.
-Only log things that genuinely happened to you.
-
 | # | Tool / SDK | Task attempted | Steps | Expected | Actual | Severity | Workaround | Suggestion |
 |---|------------|----------------|-------|----------|--------|----------|------------|------------|
-| 1 |            |                |       |          |        |          |            |            |
+| 1 |     2       |          3      |   4    |     2     |     2   |      1    |      3      |     4       |
 
 ## Prompts to jog your memory while building
 - `alexa-ai configure` / `new mcp` / `deploy`: any unclear errors or missing flags?
