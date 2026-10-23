@@ -1,4 +1,4 @@
-# Friction log (worth up to +10% in judging)
+# Friction log 
 
 Fill this in as you hit real problems. Judges want, per entry: the task you attempted, steps taken,
 expected vs actual, a severity (blocker / major / minor), the workaround, and an actionable suggestion.
